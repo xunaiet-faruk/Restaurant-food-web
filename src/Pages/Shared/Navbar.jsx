@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
-import navbar from '../../../public/Group 1.png'
 import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     const [dropDownState, setDropDownState] = useState(false);
@@ -24,7 +23,7 @@ const Navbar = () => {
         <div className='max-w-screen-2xl mx-auto'>
             <nav className="flex items-center justify-between bg-[#393E46] px-4 py-2 text-white mb-24">
                 <div className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold text-white transition-all duration-200 hover:scale-110">
-                    <img className='w-36' src={navbar} alt="" />
+                    <img className='w-36' src={"https://live.themewild.com/restrou/assets/img/logo/logo.png"} alt="" />
                 </div>
                 <ul className="hidden items-center justify-between gap-10 md:flex">
                     <li className="group flex  cursor-pointer flex-col">
@@ -45,7 +44,7 @@ const Navbar = () => {
                                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
                             }
                         >
-                            Home
+                            About
                         </NavLink>
                     </li>
                     <li className="group flex  cursor-pointer flex-col">
@@ -55,7 +54,7 @@ const Navbar = () => {
                                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
                             }
                         >
-                            Home
+                            Service
                         </NavLink>                    </li>
                     <li className="group flex  cursor-pointer flex-col">
                         <NavLink
