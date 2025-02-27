@@ -2,21 +2,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import 'swiper/css/autoplay';
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import './Categori.css';
+import Sharetitle from '../../../Component/Sharedtitle/Sharetitle';
 
 const Cateagori = () => {
-    // Define local images (must be in the "public" folder)
     const images = [
         "/slide1.jpg",
         "/slide2.jpg",
         "/slide3.jpg",
         "/slide4.jpg",
-        "/slide5.jpg"
+        "/slide1.jpg",
+        "/slide3.jpg",
+        "/slide4.jpg",
     ];
 
     return (
-        <div className='mt-32 max-w-screen-2xl mx-auto'>
+        <div className='my-20 max-w-screen-2xl mx-auto '>
+            <Sharetitle heading={"Order Online"} subHeading={"From  11.00am to 10.00pm"} />
+
             <Swiper
                 effect={'coverflow'}
                 grabCursor={true}
@@ -30,7 +35,11 @@ const Cateagori = () => {
                     slideShadows: true,
                 }}
                 pagination={true}
-                modules={[EffectCoverflow, Pagination]}
+                autoplay={{
+                    delay: 2000, 
+                    disableOnInteraction: false
+                }}
+                modules={[EffectCoverflow, Pagination, Autoplay]}
                 className="mySwiper"
             >
                 {images.map((img, index) => (
