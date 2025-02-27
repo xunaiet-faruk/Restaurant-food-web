@@ -20,8 +20,8 @@ const Navbar = () => {
         };
     }, []);
     return (
-        <div className='max-w-screen-2xl mx-auto'>
-            <nav className="flex items-center justify-between bg-[#393E46] px-4 py-2 text-white mb-24">
+        <div className=' fixed z-10 w-full '>
+            <nav className="flex max-w-screen-2xl mx-auto items-center justify-between bg-opacity-10 bg-[#393E46] px-4 py-2 text-white ">
                 <div className="scale-100 cursor-pointer rounded-2xl px-3 py-2 text-xl font-semibold text-white transition-all duration-200 hover:scale-110">
                     <img className='w-36' src={"https://live.themewild.com/restrou/assets/img/logo/logo.png"} alt="" />
                 </div>

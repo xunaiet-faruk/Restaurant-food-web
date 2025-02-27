@@ -1,22 +1,36 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from 'react-responsive-carousel';
-
+import img1 from '../../../../public/01.jpg'
+import img2 from '../../../../public/02.jpg'
+import img3 from '../../../../public/03.png'
+import img4 from '../../../../public/04.jpg'
+import img5 from '../../../../public/05.png'
+import img6 from '../../../../public/06.png'
 const Banner = () => {
     return (
-        <div>
+        <div className="max-w-screen-2xl mx-auto ">
             <Carousel>
                 <div>
-                    <img src="https://i.ibb.co.com/Ldq5hcn/10-MINITE-CERTIFICATE.jpg" />
-                    <p className="legend">Legend 1</p>
+                    <img src={img1} />
+                   
                 </div>
                 <div>
-                    <img src="https://i.ibb.co.com/8DDYdBb/Screenshot-2023-11-21-211801.png" />
-                    <p className="legend">Legend 2</p>
+                    <img src={img2} />
                 </div>
                 <div>
-                    <img src="assets/3.jpeg" />
-                    <p className="legend">Legend 3</p>
+                    <img src={img3} />
                 </div>
+                <div>
+                    <img src={img4} />
+                </div>
+
+                <div>
+                    <img src={img5} />
+                </div>
+                <div>
+                    <img src={img6} />
+                </div> 
+              
             </Carousel>
         </div>
     );
