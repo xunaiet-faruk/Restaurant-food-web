@@ -1,4 +1,5 @@
 import Feature from "../FeatureItem/Feature";
+import Menu from "../Menu/Menu";
 import Banner from "./Banner/Banner";
 import Cateagori from "./Categori/Cateagori";
 
@@ -8,7 +9,8 @@ const Home = () => {
         <div>
             <Banner/>
             <Cateagori/>
-            <Feature/>     
+            <Feature/>
+            <Menu/>     
         </div>
     );
 };
