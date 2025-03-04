@@ -15,9 +15,9 @@ const Menu = () => {
         <div>
             <Sharetitle heading={"Let's check our menu"} subHeading={"Check it out"} />
 
-            <div className="py-12 flex flex-col justify-center items-center">
+            <div className="py-12 flex flex-col justify-center items-center mb-20">
          
-                <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-14">
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-14">
                     {
                         menu.map((item) => (
                             <div key={item.id} className="relative group cursor-pointer">

@@ -1,3 +1,4 @@
+import Apoinment from "../Appoinment/Apoinment";
 import Feature from "../FeatureItem/Feature";
 import Menu from "../Menu/Menu";
 import Banner from "./Banner/Banner";
@@ -10,7 +11,8 @@ const Home = () => {
             <Banner/>
             <Cateagori/>
             <Feature/>
-            <Menu/>     
+            <Menu/>
+            <Apoinment/>     
         </div>
     );
 };
