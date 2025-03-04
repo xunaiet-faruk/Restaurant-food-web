@@ -39,12 +39,12 @@ const Navbar = () => {
                     <li className="group flex  cursor-pointer flex-col">
 
                         <NavLink
-                            to="/"
+                            to="/menu"
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
                             }
                         >
-                            About
+                            Menu
                         </NavLink>
                     </li>
                     <li className="group flex  cursor-pointer flex-col">
