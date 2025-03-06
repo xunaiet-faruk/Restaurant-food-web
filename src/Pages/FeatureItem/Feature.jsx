@@ -14,8 +14,8 @@ const Feature = () => {
 
                 </div>
 
-                <div className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden flex justify-center items-center">
-                    {/* Background Video */}
+                <div className=" relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden flex justify-center items-center">
+                   
                     <video
                         src={video}
                         autoPlay
