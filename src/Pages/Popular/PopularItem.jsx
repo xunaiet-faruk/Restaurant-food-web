@@ -1,25 +1,18 @@
-import { useEffect, useState } from "react";
+
 import Sharetitle from "../../Component/Sharedtitle/Sharetitle";
+import Usemenu from "../../Hooks/Usemenu";
 
 const PopularItem = () => {
-    const [popular, setPopular] = useState([]);
-
-    useEffect(() => {
-        fetch('Popular.json')
-            .then(res => res.json())
-            .then(data => {
-                const popularData = data.filter(item => item.category === 'popular');
-                setPopular(popularData);
-            });
-    }, []);
-
+    const [popular] =Usemenu()
+    const populrFood = popular.filter(item => item.category === "popular")
+ 
     return (
         <div>
             <div className="mt-16">
                 <Sharetitle heading={"TODAY'S OFFER"} subHeading={"---Don't miss---"} />
 
                 <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-12 mb-12">
-                    {popular.map((item) => (
+                    {populrFood?.map((item) => (
                         <div key={item._id}>
                             <div className="flex gap-5">
                                 <div>
