@@ -1,15 +1,14 @@
 
-import Sharetitle from "../../Component/Sharedtitle/Sharetitle";
 import Usemenu from "../../Hooks/Usemenu";
 
 const PopularItem = () => {
     const [popular] =Usemenu()
     const populrFood = popular.filter(item => item.category === "popular")
+    const soupFood = popular.filter(item => item.category === "soup")
  
     return (
         <div>
             <div className="mt-16">
-                <Sharetitle heading={"TODAY'S OFFER"} subHeading={"---Don't miss---"} />
 
                 <div className="max-w-screen-2xl mx-auto grid lg:grid-cols-2 md:grid-cols-1 grid-cols-1 gap-12 mb-12">
                     {populrFood?.map((item) => (
