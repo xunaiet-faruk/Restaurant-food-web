@@ -18,7 +18,7 @@ const Food = () => {
         <div>
               <Sharebanner img={image} title={"Our Food"} description={"Most Delicious Food in the Restourant"}/>
 
-            <div className="max-w-screen-xl mx-auto mt-10 p-5">
+            <div className="max-w-screen-2xl mx-auto mt-10 p-5">
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                     {/* Tab List */}
                     <TabList className="flex gap-4 border-none justify-center items-center mb-5">
@@ -30,7 +30,7 @@ const Food = () => {
 
                     {/* Tab Panels */}
                     <TabPanel>
-                       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12">
+                       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 px-12">
                             {
                                 soupFood?.map((item) => <FoodCard key={item._id} item={item} />)
                             }
@@ -58,6 +58,7 @@ const Food = () => {
                         </div>                    </TabPanel>
                 </Tabs>
             </div>
+            
         </div>
         
     );

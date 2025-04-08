@@ -2,7 +2,7 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className="max-w-screen-2xl mx-auto">
+        <div className="max-w-screen-2xl mx-auto mt-32">
             <footer className="grid grid-cols-1 md:grid-cols-2 text-white ">
                 {/* Contact Us Section */}
                 <div className="bg-gray-800 p-6 md:p-10 text-center space-y-1">

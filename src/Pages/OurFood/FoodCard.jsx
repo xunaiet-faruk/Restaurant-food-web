@@ -1,20 +1,27 @@
+import { CiShoppingBasket } from "react-icons/ci";
 
 
 const FoodCard = ({item}) => {
     const {name,image,price,recipe} =item;
 
     return (
-        <div>
-            <div className="max-w-[350px] space-y-4 rounded-lg bg-white p-6 shadow-lg md:w-[350px] dark:bg-[#18181B]">
-                <img width={400} height={400} className="h-[275px] w-[350px] rounded-lg object-cover" src={image} />
-                <div className="grid gap-2">
-                    <h1 className="text-lg font-semibold ">{name}</h1>
-                    <p className="text-sm text-gray-500 dark:text-white/60">This is a brief description of the product. It highlights the key features and benefits.</p>
-                    <div className="text-lg font-semibold">$99.99</div>
-                </div>
-                <div className="flex gap-4">
-                    <button className="rounded-lg bg-slate-800 px-6 py-2 text-[12px] font-semibold text-white duration-300 hover:bg-slate-950 sm:text-sm md:text-base ">Add to Cart</button>
-                    <button className="rounded-md border border-black px-4 dark:border-white dark:hover:text-slate-800 dark:hover:bg-white  py-2  duration-300 hover:bg-gray-200">View Details</button>
+        <div >
+            <div  className="relative group cursor-pointer ">
+
+                <div className="absolute top-4 left-4 w-[350px] h-[360px] bg-[#F4B552] rounded-xl shadow-lg transform rotate-3 skew-y-2 transition-opacity duration-500 opacity-100 group-hover:opacity-0"></div>
+
+
+                <div className="bg-white w-[350px] h-[360px] rounded-xl shadow-xl relative z-10">
+                    <div className="flex justify-between px-4">
+                        <img src={image} alt={name} className="w-[130px] h-[130px] rounded-full" />
+                        <p className="text-3xl py-5 font-bold mt-2 text-[#F4B552]">${price}</p>
+                    </div>
+                    <h1 className="text-2xl pl-6 font-bold mt-3 py-1">{name}</h1>
+                    <p className="text-gray-400 text-[20px] pl-6 py-1 font-semibold px-4 pb-6">{recipe}</p>
+                    <button>
+                        <CiShoppingBasket />
+
+                    </button>
                 </div>
             </div>
         </div>
