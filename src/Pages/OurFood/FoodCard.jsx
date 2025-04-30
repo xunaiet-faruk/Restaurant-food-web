@@ -3,6 +3,7 @@ import { CiShoppingBasket } from "react-icons/ci";
 
 const FoodCard = ({item}) => {
     const {name,image,price,recipe} =item;
+    
 
     return (
         <div >
@@ -18,10 +19,14 @@ const FoodCard = ({item}) => {
                     </div>
                     <h1 className="text-2xl pl-6 font-bold mt-3 py-1">{name}</h1>
                     <p className="text-gray-400 text-[20px] pl-6 py-1 font-semibold px-4 pb-6">{recipe}</p>
-                    <button>
-                        <CiShoppingBasket />
+                    <div className="flex justify-end items-end px-5">
+                        <button>
+                            <CiShoppingBasket className="text-[30px] hover:text-[#F4B552] hover:scale-150 transition-transform duration-300"/>
 
-                    </button>
+                        </button>
+                    </div>
+
+                    
                 </div>
             </div>
         </div>

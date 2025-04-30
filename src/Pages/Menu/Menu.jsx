@@ -65,7 +65,7 @@ const Menu = () => {
                                     </div>
                                     <div className="flex flex-wrap items-center justify-end   md:text-base ">
                                         <button className=" bg-gray-400 px-4 py-1
-                                        font-semibold text-white duration-300 hover:scale-95 hover:bg-gray-600">View More
+                                        font-semibold text-white duration-300 hover:scale-95 hover:bg-yellow-600">View More
                                         </button>
                                     </div>
                                 </div>
