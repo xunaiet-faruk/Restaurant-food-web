@@ -58,12 +58,12 @@ const Navbar = () => {
                         </NavLink>                    </li>
                     <li className="group flex  cursor-pointer flex-col">
                         <NavLink
-                            to="/"
+                            to="/login"
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
                             }
                         >
-                            Home
+                            Login
                         </NavLink>                    </li>
                 </ul>
                 <div ref={dropDownMenuRef} onClick={() => setDropDownState(!dropDownState)} className="relative flex transition-transform md:hidden">
