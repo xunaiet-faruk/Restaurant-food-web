@@ -1,6 +1,10 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Register = () => {
+    const [showName, setShowName] = useState({});
+
     return (
         <div>
             <div className="pt-[200px]">
@@ -51,13 +55,26 @@ const Register = () => {
                             />
 
                         </div>
-                        <button className="rounded-md bg-[#F4B552] px-4 py-2 text-white transition-colors hover:bg-black ">Submit</button>
+                        <div>
+                            <label htmlFor="type2-1" className="flex max-w-[380px] md:w-[380px]">
+                                <div className="w-fit whitespace-nowrap  bg-[#F4B552]  px-2 py-1 text-sm text-white">Choose File</div>
+                                <div className=" flex w-full max-w-[380px] items-center  border-b-[2px] border-[#F4B552]  px-2 text-sm font-medium text-gray-400">{showName.name ? showName.name : 'No File Chosen'}</div>
+                            </label>
+                            <input
+                                onChange={(e) => {
+                                    if (e.target.files && e.target.files[0]) {
+                                        const imageFile = e.target.files[0]; setShowName(imageFile);
+                                    }
+                                }} className="hidden" type="file" name="" id="type2-1"
+                            />
+                        </div>
+                        <button className="rounded-md bg-[#F4B552] px-8 py-2 text-white transition-colors hover:bg-black ">Submit</button>
                     </form>
                     <p className="text-center text-sm text-zinc-700">
                         Don&apos;t have an account?
-                        <a href="#" className="font-semibold underline">
-                            Signup
-                        </a>
+                        <Link className="text-blue-500 font-bold" to={'/login'}>
+                        Sign In
+                        </Link>
                     </p>
                 </div>
             </div>

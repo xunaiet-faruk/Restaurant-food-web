@@ -40,7 +40,7 @@ const Login = () => {
                 <p className="text-center text-sm text-zinc-700">
                     Don&apos;t have an account?
                     <a href="#" className="font-semibold underline">
-                      <Link to={'/signup'}>
+                        <Link className="text-blue-500 font-bold" to={'/signup'}>
                             Signup</Link>
                     </a>
                 </p>
