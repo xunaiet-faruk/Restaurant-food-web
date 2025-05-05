@@ -2,16 +2,16 @@ import { useContext, useState } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AuthContext } from '../../Authentication/Provider/Authprobider';
+import { AuthContext } from '../../Authentication/Provider/AuthProbider';
 const Navbar = () => {
     const [dropDownState, setDropDownState] = useState(false);
     const dropDownMenuRef = useRef();
-    const {user,logout} =useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
-    const handleLogout =() =>{
+    const handleLogout = () => {
         logout()
-        .then(() =>{})
-        .catch(erro =>console.log(erro))
+            .then(() => { })
+            .catch(erro => console.log(erro))
     }
 
     useEffect(() => {
@@ -62,13 +62,13 @@ const Navbar = () => {
                                 isPending ? "pending" : isActive ? "text-yellow-400" : ""
                             }
                         >
-                           Food
+                            Food
                         </NavLink>                    </li>
-                        {
+                    {
                         user ?
-                         <li className="group flex  cursor-pointer flex-col">
+                            <li className="group flex  cursor-pointer flex-col">
                                 <NavLink onClick={handleLogout}
-                                    
+
                                     className={({ isActive, isPending }) =>
                                         isPending ? "pending" : isActive ? "text-red-400" : ""
                                     }
@@ -77,8 +77,8 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
 
-                        :
-                        
+                            :
+
                             <li className="group flex  cursor-pointer flex-col">
                                 <NavLink
                                     to="/login"
@@ -90,10 +90,10 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
 
-                           
 
-                        }
-                    
+
+                    }
+
                 </ul>
                 <div ref={dropDownMenuRef} onClick={() => setDropDownState(!dropDownState)} className="relative flex transition-transform md:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="cursor-pointer" > <line x1="4" x2="20" y1="12" y2="12" /> <line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /> </svg>

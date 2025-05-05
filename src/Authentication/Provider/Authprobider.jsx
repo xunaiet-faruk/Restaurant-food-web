@@ -1,48 +1,53 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    onAuthStateChanged,
+    signInWithEmailAndPassword,
+    signOut
+} from "firebase/auth";
 import { app } from "../Firabase/firebase.config";
 
-export const AuthContext =createContext(null)
+export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
-const Authprobider = ({children}) => {
-    const [user,setuser] =useState(null)
-    const [loading,setloading] =useState(true)
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const createUser =(email,password)=>{
-        setloading(true)
-        return createUserWithEmailAndPassword(auth,email,password)
-    }
+    const createUser = (email, password) => {
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
 
-    const signIn =(email,password)=>{
-        setloading(true)
-        return signInWithEmailAndPassword(auth,email,password)
-    }
+    const signIn = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    };
 
-    const logout =()=>{
-        setloading(true)
-        return signOut(auth)
-    }
-   
+    const logout = () => {
+        setLoading(true);
+        return signOut(auth);
+    };
 
-    useEffect(()=>{
-        const unSubscribe =onAuthStateChanged(auth,curentUser=>{
-            setuser(curentUser)
-            console.log("new user here",curentUser);
-            setloading(false)
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+            console.log("New user here:", currentUser);
+            setLoading(false);
+        });
 
-        })
+        return () => unsubscribe(); // ✅ Correct cleanup
+    }, []);
 
-        return () =>{
-            return unSubscribe()
-        }
-    })
-
-    const authInfo ={
+    const authInfo = {
         user,
         loading,
-        createUser,signIn,logout
-    }
+        createUser,
+        signIn,
+        logout
+    };
+
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
@@ -50,4 +55,4 @@ const Authprobider = ({children}) => {
     );
 };
 
-export default Authprobider;
+export default AuthProvider;

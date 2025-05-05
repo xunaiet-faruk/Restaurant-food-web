@@ -1,30 +1,48 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Authentication/Provider/Authprobider";
+import { AuthContext } from "../../Authentication/Provider/AuthProbider";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
     const [showName, setShowName] = useState({});
-    const { createUser } =useContext(AuthContext)
-    const handleRegister =e=>{
+    const { createUser } = useContext(AuthContext)
+    const handleRegister = e => {
         e.preventDefault();
-        const form =e.target
-        const name=form.name.value;
-        const email =form.email.value
-        const password =form.password.value;
+        const form = e.target
+        const name = form.name.value;
+        const email = form.email.value
+        const password = form.password.value;
         // const image =form.image.value;
-        const Allinfo ={name,email,password}
-        createUser(email,name)
-        .then(result =>{
-            const Registeruser =result.user;
-            console.log(Registeruser);
-        })
+        const Allinfo = { name, email, password }
+        createUser(email, password)
+            .then(result => {
+                const Registeruser = result.user;
+                console.log(Registeruser);
+                if(result.user){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your Registation has been Success",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+             .catch((error) => {
+                            console.error("Login Error:", error.message);
+                            Swal.fire({
+                                title: "Something Wrong ",
+                                icon: "warning",
+                                draggable: true
+                            });
+                        });
     }
 
     return (
         <div>
             <div className="pt-[200px]">
-               <form onSubmit={handleRegister}>
+                <form onSubmit={handleRegister}>
                     <div className="mx-auto w-full max-w-md space-y-4 rounded-lg border bg-white p-7 shadow-lg sm:p-10 ">
                         <h1 className="text-3xl font-semibold tracking-tight">Sign Up</h1>
 
@@ -94,7 +112,7 @@ const Register = () => {
                             </Link>
                         </p>
                     </div>
-               </form>
+                </form>
             </div>
         </div>
     );

@@ -1,13 +1,37 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Authentication/Provider/AuthProbider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
-    const hadlesubmit =e=>{
+    const { signIn } = useContext(AuthContext)
+    const hadlesubmit = e => {
         e.preventDefault();
-        const form =e.target
-        const Name =form.Name.value; 
-        const password =form.password.value;
-        console.log(Name,password);
+        const form = e.target
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        signIn(email, password)
+            .then((res) => {
+                console.log(res.user,"login here");
+                if(res.user){
+                    Swal.fire({
+                        title: "Login ",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
+            })
+            .catch((error) => {
+                console.error("Login Error:", error.message);
+                Swal.fire({
+                    title: "Something Wrong ",
+                    icon: "warning",
+                    draggable: true
+                });
+            });
+
     }
     return (
         <div className="pt-[200px]">
@@ -18,14 +42,14 @@ const Login = () => {
 
                     <div className="space-y-6">
                         <div className="space-y-2 text-sm">
-                            <label htmlFor="Name" className="block text-zinc-700 dark:text-zinc-300 font-medium">
-                                Name
+                            <label htmlFor="email" className="block text-zinc-700 dark:text-zinc-300 font-medium">
+                                Email
                             </label>
                             <input
                                 className="flex h-10 w-full rounded-md border px-3 py-2 text-sm focus:ring-1 focus-visible:outline-none dark:border-zinc-700"
-                                id="Name"
-                                placeholder="Enter Name"
-                                name="Name"
+                                id="email"
+                                placeholder="Enter email"
+                                name="email"
                                 type="text"
                                 required
                             />
