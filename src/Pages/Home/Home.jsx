@@ -13,6 +13,7 @@ const Home = () => {
             <Feature/>
             <Menu/>
             <Apoinment/>     
+            
         </div>
     );
 };

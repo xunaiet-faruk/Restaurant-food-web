@@ -30,7 +30,7 @@ const Food = () => {
 
                     {/* Tab Panels */}
                     <TabPanel>
-                       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 px-12">
+                       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 ">
                             {
                                 soupFood?.map((item) => <FoodCard key={item._id} item={item} />)
                             }
