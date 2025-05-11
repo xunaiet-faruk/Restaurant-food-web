@@ -66,15 +66,14 @@ const Navbar = () => {
                         </NavLink>                    </li>
                     {
                         user ?
-                            <li className="group flex  cursor-pointer flex-col">
+                            <li className="group flex  cursor-pointer flex-col animate-pulse hover:text-yellow-400">
                                 <NavLink 
 
                                     className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "font-bold uppercase" : ""
+                                        isPending ? "pending" : isActive ? " uppercase" : ""
                                     }
                                 >
-                                    {user?.displayName}
-                                    
+                                    Dashboard
                                 </NavLink>
                             </li>
 
