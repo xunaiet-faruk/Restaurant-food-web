@@ -67,13 +67,14 @@ const Navbar = () => {
                     {
                         user ?
                             <li className="group flex  cursor-pointer flex-col">
-                                <NavLink onClick={handleLogout}
+                                <NavLink 
 
                                     className={({ isActive, isPending }) =>
-                                        isPending ? "pending" : isActive ? "text-red-400" : ""
+                                        isPending ? "pending" : isActive ? "font-bold uppercase" : ""
                                     }
                                 >
-                                    Logout
+                                    {user?.displayName}
+                                    
                                 </NavLink>
                             </li>
 
