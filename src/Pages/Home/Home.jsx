@@ -1,6 +1,7 @@
 import Apoinment from "../Appoinment/Apoinment";
 import Feature from "../FeatureItem/Feature";
 import Menu from "../Menu/Menu";
+import Ban from "./Banner/Ban";
 import Banner from "./Banner/Banner";
 import Cateagori from "./Categori/Cateagori";
 
@@ -9,6 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner/>
+            <Ban/>
             <Cateagori/>
             <Feature/>
             <Menu/>
