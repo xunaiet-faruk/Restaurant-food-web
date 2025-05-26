@@ -59,25 +59,21 @@ const foodItems = [
         buttonColor: '#03A9F4'
     }
 ];
-  
 
 const Ban = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animateMain, setAnimateMain] = useState(false);
 
-    // Handle animation
     useEffect(() => {
         setAnimateMain(true);
         const timeout = setTimeout(() => setAnimateMain(false), 500);
         return () => clearTimeout(timeout);
     }, [activeIndex]);
 
-    // Auto-rotation effect
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex(prev => (prev + 1) % foodItems.length);
-        }, 4000); 
-
+        }, 4000);
         return () => clearInterval(interval);
     }, []);
 
@@ -86,14 +82,32 @@ const Ban = () => {
     const activeItem = foodItems[activeIndex];
 
     return (
-        <div
-            className="min-h-screen flex items-center justify-between px-10 transition-colors duration-500"
-            style={{ backgroundColor: activeItem.bg }}
-        >
-            {/* Left Text Section */}
-            <div className="w-1/2 space-y-6">
-                <h1 className="text-6xl text-white font-bold">{activeItem.title}</h1>
-                <p className="text-gray-700 max-w-md">{activeItem.desc}</p>
+        <div className="relative min-h-screen flex items-center justify-between px-10 container mx-auto overflow-hidden">
+
+            {/* Wave background */}
+           
+
+            {/* Right Side Background Extension */}
+            <div
+                className="absolute right-0 top-0 w-[1200px] h-[600px] z-0"
+                style={{
+                    backgroundColor: activeItem.bg,
+                    clipPath: 'path("M0 0 H1200 V500 Q1000 150 800 400 T400 500 T0 500 Z")'
+                }}
+            ></div>
+
+
+
+            {/* Left Section */}
+            <div className="w-1/2 space-y-12 z-10 pt-12">
+                <h1
+                    className="text-6xl font-bold transition-colors duration-500"
+                    style={{ color: activeItem.buttonColor }}
+                >
+                    {activeItem.title}
+                </h1>
+
+                <p className="text-gray-500 max-w-md">{activeItem.desc}</p>
                 <button
                     className="px-6 py-2 rounded text-white font-semibold transition-all duration-300"
                     style={{ backgroundColor: activeItem.buttonColor }}
@@ -102,8 +116,9 @@ const Ban = () => {
                 </button>
             </div>
 
-            {/* Right Image and Arc Section */}
-            <div className="w-1/2 flex flex-col items-center justify-center relative ">
+
+            {/* Right Image Arc */}
+            <div className="w-1/2 flex flex-col items-center justify-center relative z-10">
                 <div className="arc-container relative w-[600px] h-[250px] mb-0">
                     {foodItems.map((item, index) => {
                         const angle = angleStep * index;
@@ -136,10 +151,9 @@ const Ban = () => {
                     <img
                         src={activeItem.img}
                         alt="Main Food"
-                        className="w-full  h-full object-cover  bg-transparent"
+                        className="w-full h-full object-cover bg-transparent"
                     />
                 </div>
-
             </div>
         </div>
     );

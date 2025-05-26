@@ -9,7 +9,7 @@ import Cateagori from "./Categori/Cateagori";
 const Home = () => {
     return (
         <div>
-            <Banner/>
+       
             <Ban/>
             <Cateagori/>
             <Feature/>
