@@ -16,7 +16,7 @@ const Food = () => {
 
     return (
         <div>
-              <Sharebanner img={image} title={"Our Food"} description={"Most Delicious Food in the Restourant"}/>
+              <Sharebanner img={image}/>
 
             <div className="max-w-screen-2xl mx-auto mt-10 p-5">
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
